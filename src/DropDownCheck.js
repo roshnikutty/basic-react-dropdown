@@ -8,7 +8,6 @@ class DropDownCheck extends Component {
             selected: this.props.list[0]
         }
         this.select = this.select.bind(this);
-        this.closeMenu = this.closeMenu.bind(this);
         this.renderListItems = this.renderListItems.bind(this);
         this.toggleMenu = this.toggleMenu.bind(this);
     }
@@ -22,10 +21,6 @@ class DropDownCheck extends Component {
                  selected: item})
     }
 
-    closeMenu = () => {
-        this.setState({ listVisible: false })
-        document.addEventListener('click', this.closeMenu)
-    }
     renderListItems = () => {
         return this.props.list.map((item, i) => (
             <div onClick={((e) => this.select(e, item))} key={i} className="selectedVariant">
